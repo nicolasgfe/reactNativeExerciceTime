@@ -1,11 +1,20 @@
-import { NavigationContainer } from "@react-navigation/native"
+import { NativeBaseProvider, extendTheme } from "native-base";
 import { PropsWithChildren } from "react";
+import React from "react"
 
 const AppThemeProvider = ({children}: PropsWithChildren) => {
+  const { colors } = extendTheme({});
+
+  const appTheme = extendTheme({
+    colors: {
+      primary: colors.orange,
+      secondery: colors.pink
+    }
+  })
   return(
-    <NavigationContainer>
+    <NativeBaseProvider theme={appTheme}>
       {children}
-    </NavigationContainer>
+    </NativeBaseProvider>
   )
 }
 export default AppThemeProvider;
