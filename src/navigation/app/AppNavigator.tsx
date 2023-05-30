@@ -16,7 +16,7 @@ const AppNavigator = () => {
     }
 
     return (
-        <Stack.Navigator screenOptions={navigatiorScreenOptions} initialRouteName="Home">
+        <Stack.Navigator screenOptions={navigatiorScreenOptions} initialRouteName="Register">
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Register" component={Register} />
         </Stack.Navigator>

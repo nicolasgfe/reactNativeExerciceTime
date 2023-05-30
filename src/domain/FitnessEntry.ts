@@ -1,6 +1,6 @@
 export interface RegisterFitnessEntryDto {
   exerciseTime: number;
-  weigth: number;
+  weight: number;
   waterConsumption: number;
   mood: number;
   date: Date;
