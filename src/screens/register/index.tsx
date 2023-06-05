@@ -1,5 +1,5 @@
 import { Box, Button, Input, Text } from "native-base"
-import { Entypo } from '@expo/vector-icons';
+import React from "react"
 import { UseExerciceTime } from "./hooks/UseExerciceTime";
 
 const Register = () => {

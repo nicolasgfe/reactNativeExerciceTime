@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { AddIcon, Button, Divider, Fab, FlatList, Heading, Text, View, useTheme } from "native-base"
+import { AddIcon, Divider, Fab, FlatList, Text, useTheme } from "native-base"
 import { AppNavigatorProps } from "../../navigation/app/interface";
 import { Container } from "./styles";
 import { UseListExercices } from "./hooks/UseListExercice";
@@ -24,6 +24,7 @@ const Home = () => {
           data={data} 
           renderItem={({item}) => (
             <>
+              <Divider/>
               <Text>
               {item.date.toISOString()}
               </Text>
