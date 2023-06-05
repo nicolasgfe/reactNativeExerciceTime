@@ -6,6 +6,6 @@ export interface RegisterFitnessEntryDto {
   date: Date;
 }
 
-export interface FitnessEntry extends RegisterFitnessEntryDto{
-  id: string,
+export interface FitnessEntryDto extends RegisterFitnessEntryDto {
+  id: string;
 }

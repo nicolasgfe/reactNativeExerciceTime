@@ -5,7 +5,7 @@ import { UseExerciceTime } from "./hooks/UseExerciceTime";
 const Register = () => {
   const {     
     setExerciseTime, 
-    setWeigth, 
+    setWeight, 
     setWaterConsumption, 
     setMood,
     handleSave
@@ -18,7 +18,7 @@ const Register = () => {
         <Text>exerciseTime</Text>
         <Input placeholder="exerciseTime" onChange={(e) => setExerciseTime(e.nativeEvent.text)}/>
         <Text>weigth</Text>
-        <Input placeholder="weigth" onChange={(e) => setWeigth(e.nativeEvent.text)}/>
+        <Input placeholder="weigth" onChange={(e) => setWeight(e.nativeEvent.text)}/>
         <Text>waterConsumption</Text>
         <Input placeholder="waterConsumption" onChange={(e) => setWaterConsumption(e.nativeEvent.text)}/>
         <Text>mood</Text>

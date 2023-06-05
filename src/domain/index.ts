@@ -1,6 +1,3 @@
-import type { FitnessEntry, RegisterFitnessEntryDto } from "./FitnessEntry";
+import type { RegisterFitnessEntryDto, FitnessEntryDto } from './FitnessEntry';
 
-export {
-  FitnessEntry,
-  RegisterFitnessEntryDto,
-} 
+export { RegisterFitnessEntryDto, FitnessEntryDto };
