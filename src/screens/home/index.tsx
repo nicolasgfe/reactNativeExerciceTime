@@ -1,17 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
-import { AddIcon, Divider, Fab, FlatList, Text, View, useTheme } from "native-base"
+import { AddIcon, Fab, FlatList, useTheme } from "native-base"
 import { AppNavigatorProps } from "../../navigation/app/interface";
 import { Container } from "./styles";
 import { UseListExercices } from "./hooks/UseListExercice";
-import { findAll } from "../../data/repository/FitnessRepository";
 import React from 'react'
+import { ListItensExercices } from "./components/ListItensExercices";
 
 const Home = () => {
   const { colors } = useTheme();
   const navigation = useNavigation<AppNavigatorProps>();
 
   const { data } = UseListExercices();
-  console.log(data);
 
   const openRegister = () => {
     navigation.navigate("Register");
@@ -22,33 +21,7 @@ const Home = () => {
       <Container >
         <FlatList
           data={data}
-          renderItem={({ item }) => (
-            <>
-              <View style={{alignItems: "center"}}>
-                <Divider />
-                <Text>
-                  {item.date.toLocaleDateString()}
-                </Text>
-                <Text>
-                  Tempo de exercicio: &nbsp;
-                  {item.exerciseTime}
-                </Text>
-                <Text>
-                  Humor: &nbsp;
-                  {item.mood}
-                </Text>
-                <Text>
-                  Consumo de agua: &nbsp;
-                  {item.waterConsumption}
-                </Text>
-                <Text>
-                  Peso: &nbsp;
-                  {item.weight}
-                </Text>
-                <Divider />
-              </View>
-            </>
-          )}
+          renderItem={({ item }) => <ListItensExercices item={item} />}
           keyExtractor={item => item.id}
         />
 
