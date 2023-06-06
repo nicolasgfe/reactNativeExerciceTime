@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { AddIcon, Divider, Fab, FlatList, Text, useTheme } from "native-base"
+import { AddIcon, Divider, Fab, FlatList, Text, View, useTheme } from "native-base"
 import { AppNavigatorProps } from "../../navigation/app/interface";
 import { Container } from "./styles";
 import { UseListExercices } from "./hooks/UseListExercice";
@@ -7,51 +7,57 @@ import { findAll } from "../../data/repository/FitnessRepository";
 import React from 'react'
 
 const Home = () => {
-  const {colors} = useTheme();
+  const { colors } = useTheme();
   const navigation = useNavigation<AppNavigatorProps>();
 
-  const {data} = UseListExercices();
+  const { data } = UseListExercices();
   console.log(data);
-  
+
   const openRegister = () => {
     navigation.navigate("Register");
   };
 
-  return(
+  return (
     <>
-      <Container>
+      <Container >
         <FlatList
-          data={data} 
-          renderItem={({item}) => (
+          data={data}
+          renderItem={({ item }) => (
             <>
-              <Divider/>
-              <Text>
-              {item.date.toISOString()}
-              </Text>
-              <Text>
-              {item.exerciseTime}
-              </Text>
-              <Text>
-              {item.mood}
-              </Text>
-              <Text>
-              {item.waterConsumption}
-              </Text>
-              <Text>
-              {item.weight}
-              </Text>
-              <Divider/>
+              <View style={{alignItems: "center"}}>
+                <Divider />
+                <Text>
+                  {item.date.toLocaleDateString()}
+                </Text>
+                <Text>
+                  Tempo de exercicio: &nbsp;
+                  {item.exerciseTime}
+                </Text>
+                <Text>
+                  Humor: &nbsp;
+                  {item.mood}
+                </Text>
+                <Text>
+                  Consumo de agua: &nbsp;
+                  {item.waterConsumption}
+                </Text>
+                <Text>
+                  Peso: &nbsp;
+                  {item.weight}
+                </Text>
+                <Divider />
+              </View>
             </>
           )}
           keyExtractor={item => item.id}
-          />
-      
-        <Fab 
-          icon={<AddIcon />} 
+        />
+
+        <Fab
+          icon={<AddIcon />}
           backgroundColor={colors.secondary[600]}
           onPress={openRegister}
           renderInPortal={false}
-          />
+        />
       </Container>
     </>
   )
@@ -64,7 +70,7 @@ export {
 
 
 
-// return 
+// return
 //       <FlatList data={data} renderItem={({
 //       item
 //     }) => <Box borderBottomWidth="1" _dark={{
